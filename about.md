@@ -22,7 +22,7 @@ Our robotic arms are designed for precise fueling operations, capable of handlin
 
 ## Our Approach
 
-We believe in the power of stealth development. By operating under the radar, we can focus entirely on technical excellence and breakthrough innovations without the pressure of public expectations. This allows us to iterate rapidly and push the boundaries of what's possible in robotics.
+We believe in the power of focused development. By concentrating on technical excellence and breakthrough innovations, we can iterate rapidly and push the boundaries of what's possible in robotics.
 
 ## Technology Stack
 
