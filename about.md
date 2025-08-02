@@ -7,18 +7,18 @@ title: About
 
 ## Our Vision
 
-We envision a world where robots seamlessly integrate into everyday environments, performing complex tasks with human-like dexterity and intelligence. Our mission is to develop autonomous systems that can navigate, perceive, and interact with the world in ways that were previously impossible.
+We envision a world where robotic arms seamlessly handle repetitive tasks, with a focus on vehicle fueling operations. Our mission is to develop robotic systems that can fuel EVs, gas cars, and other vehicles with precision and reliability.
 
 ## What We're Building
 
-### Advanced Perception Systems
-Our robots are equipped with state-of-the-art LIDAR and computer vision systems that enable them to understand and navigate complex environments with unprecedented accuracy.
+### Vehicle Fueling Systems
+Our robotic arms are designed specifically for fueling operations, capable of handling different fuel types and vehicle configurations with precision.
 
-### Intelligent Navigation
-We're developing sophisticated navigation algorithms that allow our robots to move through dynamic environments, avoiding obstacles and finding optimal paths in real-time.
+### Repetitive Task Automation
+We're developing robotic systems that can handle repetitive world tasks efficiently, reducing human intervention in routine operations.
 
-### Precision Manipulation
-Our robotic arms are designed for delicate and precise operations, capable of handling objects with human-like dexterity and adaptability.
+### Precision Fueling
+Our robotic arms are designed for precise fueling operations, capable of handling various fuel nozzles and vehicle fuel ports with accuracy.
 
 ## Our Approach
 
@@ -26,10 +26,10 @@ We believe in the power of stealth development. By operating under the radar, we
 
 ## Technology Stack
 
-- **Hardware**: Custom-designed robotic platforms with modular components
-- **Software**: Advanced AI/ML algorithms for perception and control
-- **Sensors**: Multi-modal sensor fusion for robust environmental understanding
-- **Control Systems**: Real-time adaptive control for precise manipulation
+- **Hardware**: Custom-designed robotic arms for fueling operations
+- **Software**: Advanced AI/ML algorithms for precise control
+- **Sensors**: Multi-modal sensor fusion for fuel port detection
+- **Control Systems**: Real-time adaptive control for precise fueling
 
 ---
 
