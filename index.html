@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robo Jerry - Stealth Robotics Startup</title>
+    <title>Refuel Robotics - Autonomous Vehicle Refueling</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -91,12 +91,24 @@
             color: #7f8c8d;
             font-style: italic;
         }
+        .progress-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .progress-item.completed {
+            border-left: 4px solid #27ae60;
+        }
+        .progress-item.in-progress {
+            border-left: 4px solid #f39c12;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <p>Stealth Robotics Startup</p>
+            <p>Refuel Robotics - Autonomous Vehicle Refueling</p>
         </div>
     </header>
     
@@ -111,23 +123,41 @@
     
     <div class="container">
         <div class="content">
-            <h1>Welcome to Robo Jerry</h1>
-            
-            <p>We're building robotic arms for vehicle fueling and repetitive world tasks.</p>
+            <h1>Refuel Robotics</h1>
             
             <div class="mission">
-                <h2>Our Mission</h2>
-                <p>At Robo Jerry, we're developing robotic arms capable of handling repetitive world tasks, with a focus on fueling EVs, gas cars, and other vehicles.</p>
+                <strong>Software-first company building computer vision and motion control systems that power robotic arms for autonomous vehicle refueling.</strong>
             </div>
             
+            <h2>Our Mission</h2>
+            <p>We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our computer vision and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.</p>
+            
+            <h2>Founder</h2>
+            <p><strong>Manoj Namburi</strong> - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.</p>
+            
+            <h2>Technology Stack</h2>
+            <ul>
+                <li><strong>Computer Vision:</strong> YOLOv8-based detection for fuel port identification</li>
+                <li><strong>Motion Control:</strong> Advanced ROS simulation and control systems</li>
+                <li><strong>Hardware Integration:</strong> LeRobot SO-101 robotic arm testing</li>
+                <li><strong>Software Architecture:</strong> Modular, scalable systems for fleet deployment</li>
+            </ul>
+            
+            <h2>Progress</h2>
+            <div class="progress-item completed">✅ YOLOv8-based fuel port detection system</div>
+            <div class="progress-item completed">✅ ROS simulation environment for motion planning</div>
+            <div class="progress-item completed">✅ LeRobot SO-101 robotic arm integration and testing</div>
+            <div class="progress-item in-progress">🔄 Fleet deployment optimization</div>
+            <div class="progress-item in-progress">🔄 Multi-vehicle type support</div>
+            
             <h2>Latest Updates</h2>
-            <p>Stay informed about our progress through our <a href="progress/2025-07-update.html" class="cta">latest development log</a>.</p>
+            <p>Stay informed about our progress through our <a href="progress/2025-07-update.html">latest development log</a>.</p>
         </div>
     </div>
     
     <footer>
         <div class="container">
-            <p>Building tomorrow's robots, today.</p>
+            <p>Building the future of autonomous refueling.</p>
         </div>
     </footer>
 </body>

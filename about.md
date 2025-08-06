@@ -3,34 +3,49 @@ layout: default
 title: About
 ---
 
-# About Robo Jerry
+# About Refuel Robotics
 
 ## Our Vision
 
-We envision a world where robotic arms seamlessly handle repetitive tasks, with a focus on vehicle fueling operations. Our mission is to develop robotic systems that can fuel EVs, gas cars, and other vehicles with precision and reliability.
+We're building the software infrastructure that powers autonomous vehicle refueling. Our computer vision and motion control systems enable robotic arms to safely and efficiently refuel vehicles at gas stations, EV charge points, and fleet depots.
 
-## What We're Building
+## The Problem
 
-### Vehicle Fueling Systems
-Our robotic arms are designed specifically for fueling operations, capable of handling different fuel types and vehicle configurations with precision.
+Traditional refueling requires human operators, limiting availability and increasing costs. Fleet operators need 24/7 autonomous refueling capabilities to maximize vehicle utilization and reduce operational overhead.
 
-### Repetitive Task Automation
-We're developing robotic systems that can handle repetitive world tasks efficiently, reducing human intervention in routine operations.
+## Our Solution
 
-### Precision Fueling
-Our robotic arms are designed for precise fueling operations, capable of handling various fuel nozzles and vehicle fuel ports with accuracy.
+**Software-first approach to autonomous refueling:**
 
-## Our Approach
+- **Computer Vision**: YOLOv8-based detection systems identify fuel ports across different vehicle types
+- **Motion Control**: Advanced ROS simulation and control algorithms for precise robotic arm movement
+- **Hardware Integration**: Modular software that works with existing robotic arm systems
+- **Fleet Management**: Scalable software architecture for multi-location deployment
 
-We believe in the power of focused development. By concentrating on technical excellence and breakthrough innovations, we can iterate rapidly and push the boundaries of what's possible in robotics.
+## Founder
+
+**Manoj Namburi** brings 10+ years of embedded systems and automation QA experience from Dell, AMD, and WindRiver. This background in hardware-software integration and quality assurance is critical for building reliable autonomous systems.
+
+## Market Opportunity
+
+- **Fleet Operations**: Autonomous refueling for commercial vehicle fleets
+- **Gas Stations**: 24/7 unmanned refueling capabilities
+- **EV Charging**: Automated charging for electric vehicles
+- **Fleet Depots**: Integrated refueling systems for large vehicle operations
 
 ## Technology Stack
 
-- **Hardware**: Custom-designed robotic arms for fueling operations
-- **Software**: Advanced AI/ML algorithms for precise control
-- **Sensors**: Multi-modal sensor fusion for fuel port detection
-- **Control Systems**: Real-time adaptive control for precise fueling
+- **Computer Vision**: YOLOv8 object detection for fuel port identification
+- **Motion Planning**: ROS-based simulation and control systems
+- **Hardware Integration**: LeRobot SO-101 robotic arm compatibility
+- **Software Architecture**: Modular, cloud-connected systems for fleet management
+
+## Company Status
+
+- **Location**: Toronto, Canada (relocating to San Francisco)
+- **Stage**: Pre-seed, seeking funding and partnerships
+- **Focus**: Software development and hardware integration
 
 ---
 
-*Innovation happens in the shadows.* 
+*Software-first, hardware-enabled autonomous refueling.* 
