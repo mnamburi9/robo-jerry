@@ -4,161 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refuel Robotics - Autonomous Vehicle Refueling</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.4;
-            margin: 0;
-            padding: 0;
-            background: #f8f9fa;
-            color: #333;
-            font-size: 1rem;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 5px 0;
-            text-align: center;
-        }
-        header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-        nav {
-            background: #34495e;
-            padding: 1rem 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        nav a:hover {
-            background: #2c3e50;
-        }
-        .content {
-            background: white;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        h2 {
-            color: #34495e;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.2rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .mission {
-            background: #ecf0f1;
-            padding: 0.7rem;
-            border-radius: 6px;
-            margin: 0.5rem 0;
-        }
-        .cta {
-            background: #3498db;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 6px;
-            display: inline-block;
-            margin: 1rem 0;
-            transition: background 0.3s;
-        }
-        .cta:hover {
-            background: #2980b9;
-        }
-        footer {
-            text-align: center;
-            padding: 0.5rem;
-            color: #7f8c8d;
-            font-style: italic;
-        }
-        .progress-item {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            background: #f8f9fa;
-            border-radius: 4px;
-        }
-        .progress-item.completed {
-            border-left: 4px solid #27ae60;
-        }
-        .progress-item.in-progress {
-            border-left: 4px solid #f39c12;
-        }
-    </style>
+    <meta name="description" content="Software-first company building computer vision and motion control systems for autonomous vehicle refueling at gas stations and fleet depots.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="data:font/woff2;base64," as="font" type="font/woff2" crossorigin>
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Meta tags for SEO and social -->
+    <meta property="og:title" content="Refuel Robotics - Autonomous Vehicle Refueling">
+    <meta property="og:description" content="Advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="container">
-            <p>Refuel Robotics - Autonomous Vehicle Refueling</p>
+            <div class="header-content">
+                <h1 class="site-title" contenteditable="true">Refuel Robotics</h1>
+                <p class="site-tagline" contenteditable="true">Autonomous Vehicle Refueling Technology</p>
+            </div>
         </div>
     </header>
     
-    <nav>
+    <nav class="main-nav">
         <div class="container">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="videos.html">Videos</a>
-            <a href="progress/2025-07-update.html">Progress</a>
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="videos.html" class="nav-link">Videos</a></li>
+                    <li><a href="progress/2025-07-update.html" class="nav-link">Progress</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     
-    <div class="container">
-        <div class="content">
-            <h1>Refuel Robotics</h1>
-            
-            <div class="mission">
-                <strong>Software-first company building computer vision and motion control systems that power robotic arms for autonomous vehicle refueling.</strong>
+    <main class="container">
+        <section class="card">
+            <div class="card-hero">
+                <h2 class="content-title" contenteditable="true">Revolutionizing Vehicle Refueling</h2>
+                <div class="highlight-box mission-statement">
+                    <p contenteditable="true"><strong>Software-first company building computer vision and motion control systems that power robotic arms for autonomous vehicle refueling.</strong></p>
+                </div>
             </div>
             
-            <h2>Our Mission</h2>
-            <p>We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our computer vision and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.</p>
-            
-            <h2>Founder</h2>
-            <p><strong>Manoj Namburi</strong> - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.</p>
-            
-            <h2>Technology Stack</h2>
-            <ul>
-                <li><strong>Computer Vision:</strong> YOLOv8-based detection for fuel port identification</li>
-                <li><strong>Motion Control:</strong> Advanced ROS simulation and control systems</li>
-                <li><strong>Hardware Integration:</strong> LeRobot SO-101 robotic arm testing</li>
-                <li><strong>Software Architecture:</strong> Modular, scalable systems for fleet deployment</li>
-            </ul>
-            
-            <h2>Progress</h2>
-            <div class="progress-item completed">✅ YOLOv8-based fuel port detection system</div>
-            <div class="progress-item completed">✅ ROS simulation environment for motion planning</div>
-            <div class="progress-item completed">✅ LeRobot SO-101 robotic arm integration and testing</div>
-            <div class="progress-item in-progress">🔄 Fleet deployment optimization</div>
-            <div class="progress-item in-progress">🔄 Multi-vehicle type support</div>
-            
-            <h2>Latest Updates</h2>
-            <p>Stay informed about our progress through our <a href="progress/2025-07-update.html">latest development log</a>.</p>
-        </div>
-    </div>
+            <div class="card-content">
+                <section>
+                    <h2 class="section-title" contenteditable="true">Our Mission</h2>
+                    <p contenteditable="true">We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our computer vision and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.</p>
+                </section>
+                
+                <section>
+                    <h2 class="section-title" contenteditable="true">Leadership</h2>
+                    <p contenteditable="true"><strong>Manoj Namburi</strong> - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.</p>
+                </section>
+                
+                <section>
+                    <h2 class="section-title" contenteditable="true">Technology Stack</h2>
+                    <div class="highlight-box tech-highlight">
+                        <ul class="styled-list">
+                            <li contenteditable="true"><strong>Computer Vision:</strong> YOLOv8-based detection for fuel port identification</li>
+                            <li contenteditable="true"><strong>Motion Control:</strong> Advanced ROS simulation and control systems</li>
+                            <li contenteditable="true"><strong>Hardware Integration:</strong> LeRobot SO-101 robotic arm testing</li>
+                            <li contenteditable="true"><strong>Software Architecture:</strong> Modular, scalable systems for fleet deployment</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2 class="section-title" contenteditable="true">Current Progress</h2>
+                    <div class="progress-grid">
+                        <div class="progress-item completed">
+                            <span class="progress-icon">✅</span>
+                            <span contenteditable="true">YOLOv8-based fuel port detection system</span>
+                        </div>
+                        <div class="progress-item completed">
+                            <span class="progress-icon">✅</span>
+                            <span contenteditable="true">ROS simulation environment for motion planning</span>
+                        </div>
+                        <div class="progress-item completed">
+                            <span class="progress-icon">✅</span>
+                            <span contenteditable="true">LeRobot SO-101 robotic arm integration and testing</span>
+                        </div>
+                        <div class="progress-item in-progress">
+                            <span class="progress-icon">🔄</span>
+                            <span contenteditable="true">Fleet deployment optimization</span>
+                        </div>
+                        <div class="progress-item in-progress">
+                            <span class="progress-icon">🔄</span>
+                            <span contenteditable="true">Multi-vehicle type support</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2 class="section-title" contenteditable="true">Technology Visualization</h2>
+                    <div class="canvas-container">
+                        <canvas id="tech-canvas" width="1280" height="645"></canvas>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title" contenteditable="true">Latest Updates</h2>
+                    <p contenteditable="true">Stay informed about our progress through our <a href="progress/2025-07-update.html" class="btn btn-secondary">latest development log</a>.</p>
+
+                    <div class="highlight-box market-highlight" style="margin-top: var(--space-xl);">
+                        <h3 contenteditable="true">Ready to Learn More?</h3>
+                        <p contenteditable="true">Discover how our autonomous refueling technology can transform your fleet operations.</p>
+                        <a href="about.html" class="btn btn-primary">Explore Our Technology</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
     
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>Building the future of autonomous refueling.</p>
+            <div class="footer-content">
+                <p contenteditable="true">Building the future of autonomous refueling.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Performance optimizations -->
+    <script>
+        // Canvas initialization
+        function initCanvas() {
+            const canvas = document.getElementById('tech-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+
+            // Set actual size in memory (scaled to account for extra pixel density)
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+
+            // Scale the canvas back down using CSS
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+
+            // Scale the drawing context so everything will work at the higher ratio
+            ctx.scale(dpr, dpr);
+
+            // Clear with black background
+            ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+            ctx.fillRect(0, 0, rect.width, rect.height);
+
+            // Add some visual content - you can customize this
+            ctx.fillStyle = 'rgba(52, 152, 219, 0.3)';
+            ctx.fillRect(20, 20, rect.width - 40, rect.height - 40);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.font = '24px -apple-system, BlinkMacSystemFont, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Technology Visualization Canvas', rect.width / 2, rect.height / 2);
+
+            ctx.font = '16px -apple-system, BlinkMacSystemFont, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+            ctx.fillText('Interactive demonstrations coming soon', rect.width / 2, rect.height / 2 + 40);
+        }
+
+        // Initialize canvas when page loads
+        window.addEventListener('load', initCanvas);
+        window.addEventListener('resize', initCanvas);
+
+        // Lazy load images and heavy content
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            document.querySelectorAll('[data-lazy]').forEach(el => observer.observe(el));
+        }
+
+        // Simple content editing feedback
+        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+            el.addEventListener('blur', function() {
+                // Add a subtle success indicator
+                this.style.background = '#27ae6010';
+                setTimeout(() => {
+                    this.style.background = '';
+                }, 1000);
+            });
+        });
+
+        // Preload next page on hover
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                const href = this.getAttribute('href');
+                if (href && !document.querySelector(`link[href="${href}"]`)) {
+                    const preload = document.createElement('link');
+                    preload.rel = 'prefetch';
+                    preload.href = href;
+                    document.head.appendChild(preload);
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
