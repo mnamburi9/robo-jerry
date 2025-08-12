@@ -1,45 +1,43 @@
 # Refuel Robotics
 
-A software-first company building computer vision and motion control systems for autonomous vehicle refueling.
+A software-first company building hardware integration and motion control systems for autonomous vehicle refueling.
 
-## GitHub Pages Site
+## Overview
 
-This repository contains the source files for the Refuel Robotics GitHub Pages website. The site showcases our autonomous refueling technology, founder background, and development progress.
+Refuel Robotics is developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our hardware integration and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.
 
-### Site Structure
+## Technology Stack
 
-- **Home Page** (`index.md`) - Company overview and founder information
-- **About Page** (`about.md`) - Vision, market opportunity, and technology stack
-- **Progress Updates** (`progress/`) - Development logs and technical milestones
+Our current development focuses on:
 
-### Recent Technical Milestones
+1. **Website Development** - Modern HTML/CSS/JavaScript with responsive design
+2. **Video Platform** - Optimized MP4 encoding with embedded player
+3. **Hardware Integration** - LeRobot SO-101 robotic arm compatibility
+4. **Software Architecture** - Modular, scalable systems for fleet deployment
 
-Successfully developed autonomous refueling systems with:
+## Current Progress
 
-1. **YOLOv8 Computer Vision** - Real-time fuel port detection across vehicle types
-2. **ROS Motion Control** - Advanced simulation and path planning for robotic arms
-3. **LeRobot SO-101 Integration** - Hardware compatibility and precision testing
+### Completed
+- **Website Development**: Professional public-facing website with video demonstrations
+- **Video Platform**: Embedded video player with optimized content delivery
+- **Hardware Integration**: LeRobot SO-101 robotic arm testing and integration
 
-### Technology Stack
+### In Progress
+- **Advanced Features**: Additional video and website functionality
+- **Security Enhancement**: Authentication and data protection systems
+- **Mobile App Development**: Companion mobile application
+- **Partnership Development**: Collaboration with fleet operators and technology partners
 
-- **Computer Vision**: YOLOv8-based detection for fuel port identification
-- **Motion Control**: ROS simulation and control systems
-- **Hardware Integration**: LeRobot SO-101 robotic arm compatibility
-- **Software Architecture**: Modular, cloud-connected systems for fleet management
+## Leadership
 
-### Access
+**Manoj Namburi** - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.
 
-The site is hosted at: https://mnamburi9.github.io/robo-jerry
+## Company Status
 
-### Local Development
+- **Location**: Toronto, Canada
+- **Stage**: Pre-seed, seeking funding and partnerships
+- **Focus**: Software development and hardware integration
 
-To run the site locally:
+## Contact
 
-1. Install Jekyll: `gem install jekyll bundler`
-2. Install dependencies: `bundle install`
-3. Start server: `bundle exec jekyll serve`
-4. Visit: http://localhost:4000
-
----
-
-*Building the future of autonomous refueling.*
+For more information about our autonomous refueling technology, visit our [website](https://mnamburi9.github.io/robo-jerry/) or check out our [latest progress updates](progress/2025-07-update.html).

@@ -1,34 +1,39 @@
 ---
 layout: default
-title: Home
+title: Refuel Robotics - Autonomous Vehicle Refueling
 ---
 
 # Refuel Robotics
 
-**Software-first company building computer vision and motion control systems that power robotic arms for autonomous vehicle refueling.**
+**Software-first company building hardware integration and motion control systems that power robotic arms for autonomous vehicle refueling.**
 
 ## Our Mission
 
-We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our computer vision and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.
+We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our hardware integration and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.
 
-## Founder
+## Leadership
 
 **Manoj Namburi** - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.
 
 ## Technology Stack
 
-- **Computer Vision**: YOLOv8-based detection for fuel port identification
-- **Motion Control**: Advanced ROS simulation and control systems
+- **Website Development**: Modern HTML/CSS/JavaScript with responsive design
+- **Video Platform**: Optimized MP4 encoding with embedded player
 - **Hardware Integration**: LeRobot SO-101 robotic arm testing
 - **Software Architecture**: Modular, scalable systems for fleet deployment
 
-## Progress
+## Current Progress
 
-- ✅ YOLOv8-based fuel port detection system
-- ✅ ROS simulation environment for motion planning
-- ✅ LeRobot SO-101 robotic arm integration and testing
-- 🔄 Fleet deployment optimization
-- 🔄 Multi-vehicle type support
+### ✅ Completed
+- Website development and optimization
+- Video demonstration platform
+- LeRobot SO-101 robotic arm integration and testing
+
+### 🔄 In Progress
+- Advanced software features
+- Security and authentication systems
+- Mobile app development
+- Partnership development
 
 ## Latest Updates
 

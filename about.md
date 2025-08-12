@@ -1,13 +1,13 @@
 ---
 layout: default
-title: About
+title: About - Refuel Robotics
 ---
 
 # About Refuel Robotics
 
 ## Our Vision
 
-We're building the software infrastructure that powers autonomous vehicle refueling. Our computer vision and motion control systems enable robotic arms to safely and efficiently refuel vehicles at gas stations, EV charge points, and fleet depots.
+We're building the software infrastructure that powers autonomous vehicle refueling. Our hardware integration and motion control systems enable robotic arms to safely and efficiently refuel vehicles at gas stations, EV charge points, and fleet depots.
 
 ## The Problem
 
@@ -17,12 +17,11 @@ Traditional refueling requires human operators, limiting availability and increa
 
 **Software-first approach to autonomous refueling:**
 
-- **Computer Vision**: YOLOv8-based detection systems identify fuel ports across different vehicle types
-- **Motion Control**: Advanced ROS simulation and control algorithms for precise robotic arm movement
+- **Motion Control**: Advanced simulation and control algorithms for precise robotic arm movement
 - **Hardware Integration**: Modular software that works with existing robotic arm systems
 - **Fleet Management**: Scalable software architecture for multi-location deployment
 
-## Founder
+## Leadership
 
 **Manoj Namburi** brings 10+ years of embedded systems and automation QA experience from Dell, AMD, and WindRiver. This background in hardware-software integration and quality assurance is critical for building reliable autonomous systems.
 
@@ -35,14 +34,14 @@ Traditional refueling requires human operators, limiting availability and increa
 
 ## Technology Stack
 
-- **Computer Vision**: YOLOv8 object detection for fuel port identification
-- **Motion Planning**: ROS-based simulation and control systems
+- **Website Development**: Modern HTML/CSS/JavaScript with responsive design
+- **Video Platform**: Optimized MP4 encoding with embedded player
 - **Hardware Integration**: LeRobot SO-101 robotic arm compatibility
-- **Software Architecture**: Modular, cloud-connected systems for fleet management
+- **Software Architecture**: Modular, scalable systems for autonomous operations
 
 ## Company Status
 
-- **Location**: Toronto, Canada (relocating to San Francisco)
+- **Location**: Toronto, Canada
 - **Stage**: Pre-seed, seeking funding and partnerships
 - **Focus**: Software development and hardware integration
 

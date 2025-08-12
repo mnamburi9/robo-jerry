@@ -1,8 +1,8 @@
 title: Refuel Robotics
-description: Software-first company building computer vision and motion control systems for autonomous vehicle refueling
+description: Software-first company building hardware integration and motion control systems for autonomous vehicle refueling
 theme: minima
-url: "https://mnamburi9.github.io"
-baseurl: "/robo-jerry"
+url: https://mnamburi9.github.io
+baseurl: /robo-jerry
 author:
   name: Refuel Robotics Team
 github_username: mnamburi9 
