@@ -11,6 +11,175 @@
     <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
     
+    <style>
+        /* Video Modal Styles */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        .video-modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: 800px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .video-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid #e1e5e9;
+            background: #f8f9fa;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .video-modal-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .video-modal-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #6c757d;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .video-modal-close:hover {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        
+        .video-modal-body {
+            padding: 0;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+        
+        .video-modal-body video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        /* Video thumbnail play overlay */
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .video-container a {
+            display: block;
+            text-decoration: none;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-container:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+        
+        .video-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .video-container:hover .video-play-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .play-icon {
+            color: white;
+            font-size: 24px;
+            margin-left: 3px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .video-modal-content {
+                width: 95vw;
+                max-height: 80vh;
+            }
+            
+            .video-modal-header {
+                padding: 16px 20px;
+            }
+            
+            .video-modal-header h3 {
+                font-size: 1rem;
+            }
+            
+            .video-play-overlay {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .play-icon {
+                font-size: 20px;
+            }
+        }
+    </style>
+    
     <!-- Meta tags for SEO -->
     <meta property="og:title" content="Videos — Refuel Robotics">
     <meta property="og:description" content="Watch Robo Jerry demos: EV charging assistance and autonomous gas fuel cap opening.">
@@ -55,8 +224,11 @@
                     <div class="video-grid">
                         <article class="video-item">
                             <div class="video-container">
-                                <a href="/assets/videos/ev-charging-demo.mp4" target="_blank">
+                                <a href="/assets/videos/ev-charging-demo.mp4">
                                     <img src="/assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
+                                    <div class="video-play-overlay">
+                                        <span class="play-icon">▶</span>
+                                    </div>
                                 </a>
                             </div>
                             <div class="video-info">
@@ -73,8 +245,11 @@
                         
                         <article class="video-item">
                             <div class="video-container">
-                                <a href="/assets/videos/fuel-cap-demo.mp4" target="_blank">
+                                <a href="/assets/videos/fuel-cap-demo.mp4">
                                     <img src="/assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
+                                    <div class="video-play-overlay">
+                                        <span class="play-icon">▶</span>
+                                    </div>
                                 </a>
                             </div>
                             <div class="video-info">
@@ -115,9 +290,73 @@
     </footer>
 
     <script>
+        // Video player functionality
+        function createVideoPlayer(videoSrc, videoTitle) {
+            const modal = document.createElement('div');
+            modal.className = 'video-modal';
+            modal.innerHTML = `
+                <div class="video-modal-content">
+                    <div class="video-modal-header">
+                        <h3>${videoTitle}</h3>
+                        <button class="video-modal-close">&times;</button>
+                    </div>
+                    <div class="video-modal-body">
+                        <video controls autoplay>
+                            <source src="${videoSrc}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            `;
+            
+            // Close modal functionality
+            const closeBtn = modal.querySelector('.video-modal-close');
+            closeBtn.addEventListener('click', () => {
+                const video = modal.querySelector('video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                modal.remove();
+            });
+            
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    const video = modal.querySelector('video');
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                    modal.remove();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function closeOnEscape(e) {
+                if (e.key === 'Escape') {
+                    const video = modal.querySelector('video');
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                    modal.remove();
+                    document.removeEventListener('keydown', closeOnEscape);
+                }
+            });
+            
+            document.body.appendChild(modal);
+        }
+        
         // Video link interactions
         document.querySelectorAll('.video-container a').forEach(link => {
             link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const videoSrc = this.getAttribute('href');
+                const videoTitle = this.querySelector('img').getAttribute('alt');
+                
+                // Thumbnail animation
                 const thumbnail = this.querySelector('img');
                 if (thumbnail) {
                     thumbnail.style.opacity = '0.7';
@@ -127,6 +366,9 @@
                         thumbnail.style.transform = 'scale(1)';
                     }, 200);
                 }
+                
+                // Open video player
+                createVideoPlayer(videoSrc, videoTitle);
             });
         });
         
