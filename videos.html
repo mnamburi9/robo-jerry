@@ -422,12 +422,44 @@
             // Handle video loading and errors
             video.addEventListener('loadedmetadata', () => {
                 // Video is ready to play
-                console.log('Video loaded successfully');
+                console.log('Video loaded successfully:', videoSrc);
+            });
+            
+            video.addEventListener('loadstart', () => {
+                console.log('Video loading started:', videoSrc);
+            });
+            
+            video.addEventListener('canplay', () => {
+                console.log('Video can play:', videoSrc);
             });
             
             video.addEventListener('error', (e) => {
                 console.error('Video error:', e);
-                alert('Error loading video. Please try again.');
+                console.error('Video error details:', video.error);
+                console.error('Video network state:', video.networkState);
+                console.error('Video ready state:', video.readyState);
+                
+                // Show more detailed error message
+                let errorMessage = 'Error loading video. ';
+                if (video.error) {
+                    switch(video.error.code) {
+                        case 1:
+                            errorMessage += 'Video loading was aborted.';
+                            break;
+                        case 2:
+                            errorMessage += 'Network error occurred.';
+                            break;
+                        case 3:
+                            errorMessage += 'Video decoding failed.';
+                            break;
+                        case 4:
+                            errorMessage += 'Video format not supported.';
+                            break;
+                        default:
+                            errorMessage += 'Unknown error occurred.';
+                    }
+                }
+                alert(errorMessage + '\n\nPlease check the console for more details.');
             });
             
             // Mobile-specific handling
@@ -477,6 +509,9 @@
                     }, 200);
                 }
                 
+                // Log the video source for debugging
+                console.log('Attempting to load video:', videoSrc);
+                
                 // Open video player
                 createVideoPlayer(videoSrc, videoTitle);
             };
@@ -491,6 +526,25 @@
             }, { passive: false });
             
             link.addEventListener('touchend', handleVideoClick);
+        });
+        
+        // Test video accessibility on page load
+        window.addEventListener('load', function() {
+            console.log('Testing video accessibility...');
+            const testVideo = '/assets/videos/ev-charging-demo.mp4';
+            
+            fetch(testVideo, { method: 'HEAD' })
+                .then(response => {
+                    console.log('Video accessibility test:', response.status, response.statusText);
+                    if (response.ok) {
+                        console.log('✅ Video file is accessible');
+                    } else {
+                        console.log('❌ Video file not accessible:', response.status);
+                    }
+                })
+                .catch(error => {
+                    console.log('❌ Video accessibility test failed:', error);
+                });
         });
         
         // Navigation preloading
