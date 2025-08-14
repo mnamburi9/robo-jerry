@@ -299,8 +299,8 @@
                     <div class="video-grid">
                         <article class="video-item">
                             <div class="video-container">
-                                <a href="/assets/videos/ev-charging-demo.mp4">
-                                    <img src="/assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
+                                <a href="assets/videos/ev-charging-demo.mp4">
+                                    <img src="assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
                                     <div class="video-play-overlay">
                                         <span class="play-icon">▶</span>
                                     </div>
@@ -320,8 +320,8 @@
                         
                         <article class="video-item">
                             <div class="video-container">
-                                <a href="/assets/videos/fuel-cap-demo.mp4">
-                                    <img src="/assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
+                                <a href="assets/videos/fuel-cap-demo.mp4">
+                                    <img src="assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
                                     <div class="video-play-overlay">
                                         <span class="play-icon">▶</span>
                                     </div>
@@ -531,7 +531,7 @@
         // Test video accessibility on page load
         window.addEventListener('load', function() {
             console.log('Testing video accessibility...');
-            const testVideo = '/assets/videos/ev-charging-demo.mp4';
+            const testVideo = 'assets/videos/ev-charging-demo.mp4';
             
             fetch(testVideo, { method: 'HEAD' })
                 .then(response => {
