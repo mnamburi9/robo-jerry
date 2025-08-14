@@ -30,11 +30,12 @@
         .video-modal-content {
             background: white;
             border-radius: 12px;
-            max-width: 90vw;
+            max-width: 95vw;
             max-height: 90vh;
             width: 800px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.3s ease-out;
+            position: relative;
         }
         
         .video-modal-header {
@@ -68,6 +69,7 @@
             justify-content: center;
             border-radius: 50%;
             transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .video-modal-close:hover {
@@ -79,6 +81,7 @@
             padding: 0;
             border-radius: 0 0 12px 12px;
             overflow: hidden;
+            background: #000;
         }
         
         .video-modal-body video {
@@ -88,6 +91,7 @@
             border-radius: 0 0 12px 12px;
             object-fit: contain;
             max-height: 70vh;
+            background: #000;
         }
         
         /* Animations */
@@ -112,11 +116,14 @@
             position: relative;
             overflow: hidden;
             border-radius: 8px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .video-container a {
             display: block;
             text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .video-thumbnail {
@@ -143,6 +150,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
         
         .video-container:hover .video-play-overlay {
@@ -156,11 +164,12 @@
             margin-left: 3px;
         }
         
-        /* Responsive adjustments */
+        /* Mobile-specific styles */
         @media (max-width: 768px) {
             .video-modal-content {
                 width: 95vw;
-                max-height: 80vh;
+                max-height: 85vh;
+                margin: 10px;
             }
             
             .video-modal-header {
@@ -169,6 +178,17 @@
             
             .video-modal-header h3 {
                 font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .video-modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+            
+            .video-modal-body video {
+                max-height: 60vh;
             }
             
             .video-play-overlay {
@@ -178,6 +198,59 @@
             
             .play-icon {
                 font-size: 20px;
+            }
+            
+            /* Touch-friendly video container */
+            .video-container {
+                min-height: 120px;
+            }
+            
+            .video-container:active .video-thumbnail {
+                transform: scale(0.98);
+            }
+            
+            .video-container:active .video-play-overlay {
+                transform: translate(-50%, -50%) scale(0.95);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-modal-content {
+                width: 98vw;
+                max-height: 80vh;
+                margin: 5px;
+            }
+            
+            .video-modal-header {
+                padding: 12px 16px;
+            }
+            
+            .video-modal-header h3 {
+                font-size: 0.9rem;
+            }
+            
+            .video-modal-body video {
+                max-height: 55vh;
+            }
+            
+            .video-play-overlay {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .play-icon {
+                font-size: 18px;
+            }
+        }
+        
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .video-modal-body video {
+                -webkit-transform: translateZ(0);
+            }
+            
+            .video-container {
+                -webkit-transform: translateZ(0);
             }
         }
     </style>
@@ -303,7 +376,7 @@
                         <button class="video-modal-close">&times;</button>
                     </div>
                     <div class="video-modal-body">
-                        <video controls autoplay>
+                        <video controls preload="metadata" playsinline>
                             <source src="${videoSrc}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -311,10 +384,11 @@
                 </div>
             `;
             
+            const video = modal.querySelector('video');
+            
             // Close modal functionality
             const closeBtn = modal.querySelector('.video-modal-close');
             closeBtn.addEventListener('click', () => {
-                const video = modal.querySelector('video');
                 if (video) {
                     video.pause();
                     video.currentTime = 0;
@@ -325,7 +399,6 @@
             // Close on outside click
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    const video = modal.querySelector('video');
                     if (video) {
                         video.pause();
                         video.currentTime = 0;
@@ -337,7 +410,6 @@
             // Close on escape key
             document.addEventListener('keydown', function closeOnEscape(e) {
                 if (e.key === 'Escape') {
-                    const video = modal.querySelector('video');
                     if (video) {
                         video.pause();
                         video.currentTime = 0;
@@ -347,13 +419,49 @@
                 }
             });
             
+            // Handle video loading and errors
+            video.addEventListener('loadedmetadata', () => {
+                // Video is ready to play
+                console.log('Video loaded successfully');
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error('Video error:', e);
+                alert('Error loading video. Please try again.');
+            });
+            
+            // Mobile-specific handling
+            if ('ontouchstart' in window) {
+                // Prevent body scroll when modal is open
+                document.body.style.overflow = 'hidden';
+                
+                // Restore scroll when modal closes
+                const restoreScroll = () => {
+                    document.body.style.overflow = '';
+                };
+                
+                closeBtn.addEventListener('click', restoreScroll);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        restoreScroll();
+                    }
+                });
+            }
+            
             document.body.appendChild(modal);
+            
+            // Focus the close button for accessibility
+            setTimeout(() => {
+                closeBtn.focus();
+            }, 100);
         }
         
         // Video link interactions
         document.querySelectorAll('.video-container a').forEach(link => {
-            link.addEventListener('click', function(e) {
+            // Handle both click and touch events
+            const handleVideoClick = function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 
                 const videoSrc = this.getAttribute('href');
                 const videoTitle = this.querySelector('img').getAttribute('alt');
@@ -371,7 +479,18 @@
                 
                 // Open video player
                 createVideoPlayer(videoSrc, videoTitle);
-            });
+            };
+            
+            // Add click event
+            link.addEventListener('click', handleVideoClick);
+            
+            // Add touch event for mobile
+            link.addEventListener('touchstart', function(e) {
+                // Prevent double-firing on mobile
+                e.preventDefault();
+            }, { passive: false });
+            
+            link.addEventListener('touchend', handleVideoClick);
         });
         
         // Navigation preloading

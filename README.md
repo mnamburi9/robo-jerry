@@ -30,7 +30,7 @@ Our current development focuses on:
 
 ## Leadership
 
-**Manoj Namburi** - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto with plans to move to San Francisco.
+**Manoj Namburi** - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto.
 
 ## Company Status
 

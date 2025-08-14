@@ -73,6 +73,9 @@ body {
   background: var(--light-gray);
   font-size: 16px;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography System */
@@ -548,6 +551,14 @@ body {
     padding: 0 var(--space-md);
   }
   
+  .site-title {
+    font-size: 1.8rem;
+  }
+  
+  .site-tagline {
+    font-size: 1rem;
+  }
+  
   .nav-list {
     gap: var(--space-xs);
   }
@@ -555,6 +566,7 @@ body {
   .nav-link {
     padding: var(--space-xs) var(--space-sm);
     font-size: 0.9rem;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .card-content {
@@ -563,6 +575,16 @@ body {
   
   .card-hero {
     padding: var(--space-xl);
+  }
+  
+  .card-hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .card-hero p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
   
   .video-grid {
@@ -574,11 +596,51 @@ body {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
+  
+  .tech-stack-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .tech-item {
+    padding: var(--space-md);
+  }
+  
+  .tech-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .tech-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* Touch-friendly buttons */
+  .btn {
+    min-height: 44px;
+    padding: var(--space-md) var(--space-lg);
+  }
+  
+  /* Better spacing for mobile */
+  .main-content {
+    padding: var(--space-lg) 0;
+  }
+  
+  .card {
+    margin-bottom: var(--space-lg);
+  }
 }
 
 @media (max-width: 480px) {
   .header-content {
     padding: var(--space-md) 0;
+  }
+  
+  .site-title {
+    font-size: 1.5rem;
+  }
+  
+  .site-tagline {
+    font-size: 0.9rem;
   }
   
   .nav-container {
@@ -595,6 +657,37 @@ body {
     text-align: center;
     padding: var(--space-sm);
     font-size: 0.8rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .card-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .card-hero p {
+    font-size: 0.9rem;
+  }
+  
+  .card-content {
+    padding: var(--space-md);
+  }
+  
+  .tech-item {
+    padding: var(--space-sm);
+  }
+  
+  .tech-item h3 {
+    font-size: 1rem;
+  }
+  
+  .tech-item p {
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    min-height: 48px;
+    padding: var(--space-md);
+    font-size: 0.9rem;
   }
 }
 
@@ -629,6 +722,26 @@ body {
 .btn:focus {
   outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
+}
+
+/* Touch-friendly improvements */
+.nav-link,
+.btn,
+.card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Active states for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:active,
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .card:active {
+    transform: scale(0.99);
+  }
 }
 
 /* Loading animation */
