@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- public videos update: removed confidential R&D mentions - commit: videos-only-update -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +9,9 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Add AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         /* Video Modal Styles */
@@ -111,11 +113,50 @@
             }
         }
         
+        /* Videos Hero Section */
+        .videos-hero {
+            background: var(--gradient-dark);
+            height: 30vh;
+            min-height: 200px;
+        }
+        
+        .videos-hero .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        /* Videos Section */
+        .videos-section {
+            background: var(--bg-primary);
+            padding: var(--space-4xl) 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+        
+        .video-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--neon-cyan);
+        }
+        
         /* Video thumbnail play overlay */
         .video-container {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
         }
@@ -128,7 +169,8 @@
         
         .video-thumbnail {
             width: 100%;
-            height: auto;
+            height: 250px;
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -144,28 +186,98 @@
             transform: translate(-50%, -50%);
             background: rgba(0, 0, 0, 0.7);
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             pointer-events: none;
+            border: 3px solid var(--neon-cyan);
         }
         
         .video-container:hover .video-play-overlay {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             transform: translate(-50%, -50%) scale(1.1);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-cyan);
         }
         
         .play-icon {
             color: white;
-            font-size: 24px;
-            margin-left: 3px;
+            font-size: 32px;
+            margin-left: 4px;
+        }
+        
+        .video-info {
+            padding: var(--space-xl);
+        }
+        
+        .video-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+        
+        .video-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+        
+        .video-tags {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        
+        /* About Videos Section */
+        .about-videos-section {
+            background: var(--gradient-dark);
+            padding: var(--space-4xl) 0;
+        }
+        
+        .about-videos-section .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-videos-section .about-text {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .about-videos-section .cta-section {
+            justify-content: center;
         }
         
         /* Mobile-specific styles */
         @media (max-width: 768px) {
+            .videos-hero {
+                height: 25vh;
+                min-height: 150px;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .video-thumbnail {
+                height: 200px;
+            }
+            
+            .video-play-overlay {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-icon {
+                font-size: 24px;
+            }
+            
             .video-modal-content {
                 width: 95vw;
                 max-height: 85vh;
@@ -189,15 +301,6 @@
             
             .video-modal-body video {
                 max-height: 60vh;
-            }
-            
-            .video-play-overlay {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .play-icon {
-                font-size: 20px;
             }
             
             /* Touch-friendly video container */
@@ -263,108 +366,160 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="site-title">Refuel Robotics</h1>
-                <p class="site-tagline">Autonomous Vehicle Refueling Technology</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
             </div>
-        </div>
-    </header>
-    
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-container">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
-                    <li><a href="videos.html" class="nav-link active">Videos</a></li>
-                    <li><a href="progress/2025-07-update.html" class="nav-link">Progress</a></li>
-                </ul>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#technology" class="nav-link">Technology</a>
+                <a href="index.html#progress" class="nav-link">Progress</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="videos.html" class="nav-link active">Videos</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
     
-    <main class="container">
-        <section class="card">
-            <div class="card-hero">
-                <h1 class="content-title">Robo Jerry Demonstrations</h1>
-                <p>Watch Robo Jerry in action with our latest autonomous refueling demonstrations</p>
+    <!-- Hero Section -->
+    <section class="hero videos-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="DEMOS">DEMOS</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured <span class="title-highlight">Demonstrations</span></h2>
+                <p class="section-subtitle">See our autonomous refueling technology in action</p>
             </div>
             
-            <div class="card-content">
-                <section>
-                    <h2 class="section-title">Featured Demonstrations</h2>
-                    
-                    <div class="video-grid">
-                        <article class="video-item">
-                            <div class="video-container">
-                                <a href="assets/videos/ev-charging-demo.mp4">
-                                    <img src="assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
-                                    <div class="video-play-overlay">
-                                        <span class="play-icon">▶</span>
-                                    </div>
-                                </a>
+            <div class="video-grid">
+                <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="video-container">
+                        <a href="assets/videos/ev-charging-demo.mp4">
+                            <img src="assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
+                            <div class="video-play-overlay">
+                                <span class="play-icon">▶</span>
                             </div>
-                            <div class="video-info">
-                                <h3 class="video-title">EV Charging Demo</h3>
-                                <p class="video-description">
-                                    Demonstration of Robo Jerry assisting with electric vehicle charging.
-                                </p>
-                                <div style="margin-top: var(--space-md);">
-                                    <span class="btn btn-secondary" style="padding: var(--space-xs) var(--space-sm); font-size: 0.8rem;">EV Charging</span>
-                                    <span class="btn btn-secondary" style="padding: var(--space-xs) var(--space-sm); font-size: 0.8rem;">Assistance</span>
-                                </div>
-                            </div>
-                        </article>
-                        
-                        <article class="video-item">
-                            <div class="video-container">
-                                <a href="assets/videos/fuel-cap-demo.mp4">
-                                    <img src="assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
-                                    <div class="video-play-overlay">
-                                        <span class="play-icon">▶</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="video-info">
-                                <h3 class="video-title">Opening a Gas Fuel Cap</h3>
-                                <p class="video-description">
-                                    Demonstration of Robo Jerry autonomously opening a gas vehicle's fuel cap.
-                                </p>
-                                <div style="margin-top: var(--space-md);">
-                                    <span class="btn btn-secondary" style="padding: var(--space-xs) var(--space-sm); font-size: 0.8rem;">Fuel Cap</span>
-                                    <span class="btn btn-secondary" style="padding: var(--space-xs) var(--space-sm); font-size: 0.8rem;">Autonomous</span>
-                                </div>
-                            </div>
-                        </article>
+                        </a>
                     </div>
-                </section>
-                
-                <section>
-                    <h2 class="section-title">About Our Demonstrations</h2>
-                    <div class="highlight-box">
-                        <p>These demonstrations showcase Robo Jerry's capabilities in autonomous vehicle assistance. Our focus is on practical applications that help make refueling and charging more convenient and efficient.</p>
-                        
-                        <div style="text-align: center; margin-top: var(--space-lg);">
-                            <a href="about.html" class="btn btn-primary">Learn More About Robo Jerry</a>
-                            <a href="index.html" class="btn btn-secondary">Return to Home</a>
+                    <div class="video-info">
+                        <h3 class="video-title">EV Charging Demo</h3>
+                        <p class="video-description">
+                            Demonstration of Robo Jerry assisting with electric vehicle charging.
+                        </p>
+                        <div class="video-tags">
+                            <span class="feature-tag">EV Charging</span>
+                            <span class="feature-tag">Assistance</span>
                         </div>
                     </div>
-                </section>
+                </div>
+                
+                <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <a href="assets/videos/fuel-cap-demo.mp4">
+                            <img src="assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
+                            <div class="video-play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Opening a Gas Fuel Cap</h3>
+                        <p class="video-description">
+                            Demonstration of Robo Jerry autonomously opening a gas vehicle's fuel cap.
+                        </p>
+                        <div class="video-tags">
+                            <span class="feature-tag">Fuel Cap</span>
+                            <span class="feature-tag">Autonomous</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-videos-section">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <h2 class="section-title">About Our <span class="title-highlight">Demonstrations</span></h2>
+                <p class="about-text">
+                    These demonstrations showcase Robo Jerry's capabilities in autonomous vehicle assistance. 
+                    Our focus is on practical applications that help make refueling and charging more convenient and efficient.
+                </p>
+                
+                <div class="cta-section">
+                    <a href="index.html#about" class="btn-primary">
+                        <span>Learn More About Us</span>
+                    </a>
+                    <a href="index.html" class="btn-secondary">
+                        <span>Return to Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Progress measured in millimeters and milliseconds.</p>
+                <div class="footer-brand">
+                    <span class="logo-icon">🤖</span>
+                </div>
+                <p class="footer-text">Building the future of autonomous refueling.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
         // Video player functionality
         function createVideoPlayer(videoSrc, videoTitle) {
             const modal = document.createElement('div');

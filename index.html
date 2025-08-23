@@ -8,7 +8,8 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="data:font/woff2;base64," as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/videos/ev-charging-demo.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="assets/videos/fuel-cap-demo.mp4" as="video" type="video/mp4">
     
     <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -22,136 +23,601 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="site-title">Refuel Robotics</h1>
-                <p class="site-tagline">Autonomous Vehicle Refueling Technology</p>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+                    <div class="loading-content">
+                <div class="loading-logo">🤖</div>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
             </div>
-        </div>
-    </header>
-    
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-container">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
-                    <li><a href="videos.html" class="nav-link">Videos</a></li>
-                    <li><a href="progress/2025-07-update.html" class="nav-link">Progress</a></li>
-                </ul>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#technology" class="nav-link">Technology</a>
+                <a href="#progress" class="nav-link">Progress</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#videos" class="nav-link">Videos</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
-    
-    <main class="container">
-        <section class="card">
-            <div class="card-hero">
-                <h2 class="content-title">Revolutionizing Vehicle Refueling</h2>
-                <div class="highlight-box mission-statement">
-                    <p><strong>Software-first company building hardware integration and motion control systems that power robotic arms for autonomous vehicle refueling.</strong></p>
+    <!-- Hero Section with Video Background -->
+    <section class="hero" id="home">
+        <div class="video-background">
+            <video id="heroVideo" autoplay muted loop playsinline>
+                <source src="assets/videos/ev-charging-demo.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="video-indicator">
+                <div class="indicator-dot active" data-video="0"></div>
+                <div class="indicator-dot" data-video="1"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="REFUEL">REFUEL</span>
+                </h1>
+                <p class="hero-description">
+                    Revolutionary autonomous vehicle refueling technology powered by advanced AI and precision robotics
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="95">0</span>
+                        <span class="stat-label">% Precision</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Second Refuel</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary pulse" onclick="scrollToSection('technology')">
+                        <span>Explore Technology</span>
+                        <i class="arrow-down"></i>
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('about')">
+                        <span>Learn More</span>
+                    </button>
                 </div>
             </div>
             
-            <div class="card-content">
-                <section>
-                    <h2 class="section-title">Our Mission</h2>
-                    <p>We're developing advanced robotic systems for autonomous refueling at gas stations, EV charge points, and fleet depots. Our hardware integration and motion control software enables robotic arms to safely and efficiently refuel vehicles without human intervention.</p>
-                </section>
-                
-                <section>
-                    <h2 class="section-title">Leadership</h2>
-                    <p><strong>Manoj Namburi</strong> - 10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. Based in Toronto.</p>
-                </section>
-                
-                <section>
-                    <h2 class="section-title">Technology Stack</h2>
-                    <div class="highlight-box tech-highlight">
-                        <ul class="styled-list">
-                            <li><strong>Website Development:</strong> Modern HTML/CSS/JavaScript with responsive design</li>
-                            <li><strong>Video Platform:</strong> Optimized MP4 encoding with embedded player</li>
-                            <li><strong>Hardware Integration:</strong> LeRobot SO-101 robotic arm testing</li>
-                            <li><strong>Software Architecture:</strong> Modular, scalable systems for fleet deployment</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section>
-                    <h2 class="section-title">Current Progress</h2>
-                    <div class="progress-grid">
-                        <div class="progress-item completed">
-                            <span class="progress-icon">✅</span>
-                            <span>Website development and optimization</span>
-                        </div>
-                        <div class="progress-item completed">
-                            <span class="progress-icon">✅</span>
-                            <span>Video demonstration platform</span>
-                        </div>
-                        <div class="progress-item completed">
-                            <span class="progress-icon">✅</span>
-                            <span>LeRobot SO-101 robotic arm integration and testing</span>
-                        </div>
-                        <div class="progress-item in-progress">
-                            <span class="progress-icon">🔄</span>
-                            <span>Advanced software features</span>
-                        </div>
-                        <div class="progress-item in-progress">
-                            <span class="progress-icon">🔄</span>
-                            <span>Security and authentication systems</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="section-title">Latest Updates</h2>
-                    <p>Stay informed about our progress through our <a href="progress/2025-07-update.html" class="btn btn-secondary">latest development log</a>.</p>
-
-                    <div class="highlight-box market-highlight" style="margin-top: var(--space-xl);">
-                        <h3>Ready to Learn More?</h3>
-                        <p>Discover how our autonomous refueling technology can transform your fleet operations.</p>
-                        <a href="about.html" class="btn btn-primary">Explore Our Technology</a>
-                    </div>
-                </section>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="floating-circle neon-blue"></div>
+                    <div class="floating-circle neon-purple"></div>
+                    <div class="floating-circle neon-cyan"></div>
+                </div>
             </div>
-        </section>
-    </main>
-    
-    <footer class="site-footer">
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Technology Showcase -->
+    <section class="technology-section" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-highlight">Advanced</span> Technology Stack
+                </h2>
+                <p class="section-subtitle">Cutting-edge solutions for autonomous refueling systems</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-icon">
+                        <div class="icon-container">🤖</div>
+                    </div>
+                    <h3 class="tech-title">Hardware Integration</h3>
+                    <p class="tech-description">LeRobot SO-101 robotic arm with precision motion control</p>
+                    <div class="tech-features">
+                        <span class="feature-tag">Precision Control</span>
+                        <span class="feature-tag">Safety Systems</span>
+                    </div>
+                    <div class="tech-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="95"></div>
+                        </div>
+                        <span class="progress-text">95% Complete</span>
+                    </div>
+                </div>
+
+                <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-icon">
+                        <div class="icon-container">⚡</div>
+                    </div>
+                    <h3 class="tech-title">Software Architecture</h3>
+                    <p class="tech-description">Modular, scalable systems for fleet deployment</p>
+                    <div class="tech-features">
+                        <span class="feature-tag">Scalable</span>
+                        <span class="feature-tag">Real-time</span>
+                    </div>
+                    <div class="tech-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="85"></div>
+                        </div>
+                        <span class="progress-text">85% Complete</span>
+                    </div>
+                </div>
+
+                <div class="tech-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-icon">
+                        <div class="icon-container">🌐</div>
+                    </div>
+                    <h3 class="tech-title">Web Platform</h3>
+                    <p class="tech-description">Modern responsive interface with optimized performance</p>
+                    <div class="tech-features">
+                        <span class="feature-tag">Responsive</span>
+                        <span class="feature-tag">Fast</span>
+                    </div>
+                    <div class="tech-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-progress="100"></div>
+                        </div>
+                        <span class="progress-text">100% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Timeline -->
+    <section class="progress-section" id="progress">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Development <span class="title-highlight">Progress</span></h2>
+                <p class="section-subtitle">Our journey towards autonomous refueling excellence</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item completed" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Website Development</h3>
+                        <p>Modern responsive platform with optimized performance</p>
+                        <span class="timeline-status">✅ Completed</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item completed" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Video Platform</h3>
+                        <p>Demonstration platform with embedded video capabilities</p>
+                        <span class="timeline-status">✅ Completed</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item completed" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Robotic Integration</h3>
+                        <p>LeRobot SO-101 arm integration and motion testing</p>
+                        <span class="timeline-status">✅ Completed</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item in-progress" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Advanced Software Features</h3>
+                        <p>Enhanced automation and AI-powered optimization</p>
+                        <span class="timeline-status">🔄 In Progress</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item upcoming" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Security & Authentication</h3>
+                        <p>Enterprise-grade security implementation</p>
+                        <span class="timeline-status">⏳ Upcoming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <h2 class="section-title">Building the <span class="title-highlight">Future</span></h2>
+                    <p class="about-text">
+                        We're a software-first company building hardware integration and motion control systems 
+                        that power robotic arms for autonomous vehicle refueling at gas stations, EV charge points, 
+                        and fleet depots.
+                    </p>
+                    
+                    <div class="leadership-card">
+                        <div class="leader-info">
+                            <h3>Manoj Namburi</h3>
+                            <p class="leader-title">Founder & CEO</p>
+                            <p class="leader-description">
+                                10+ years in embedded systems and automation QA at Dell, AMD, and WindRiver. 
+                                Based in Toronto, specializing in robotics and autonomous systems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <a href="about.html" class="btn-primary">
+                            <span>Learn More About Us</span>
+                        </a>
+                        <a href="progress/2025-07-update.html" class="btn-secondary">
+                            <span>Latest Updates</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="visual-container">
+                        <div class="floating-tech">
+                            <div class="tech-element">AI</div>
+                            <div class="tech-element">IoT</div>
+                            <div class="tech-element">ML</div>
+                            <div class="tech-element">Robotics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Watch <span class="title-highlight">Demos</span></h2>
+                <p class="section-subtitle">See our autonomous refueling technology in action</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="video-container">
+                        <a href="assets/videos/ev-charging-demo.mp4">
+                            <img src="assets/images/ev-charging-thumb.jpg" alt="EV Charging Demo" class="video-thumbnail">
+                            <div class="video-play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">EV Charging Demo</h3>
+                        <p class="video-description">
+                            Demonstration of Robo Jerry assisting with electric vehicle charging.
+                        </p>
+                        <div class="video-tags">
+                            <span class="feature-tag">EV Charging</span>
+                            <span class="feature-tag">Assistance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="video-container">
+                        <a href="assets/videos/fuel-cap-demo.mp4">
+                            <img src="assets/images/fuel-cap-thumb.jpg" alt="Opening a Gas Fuel Cap" class="video-thumbnail">
+                            <div class="video-play-overlay">
+                                <span class="play-icon">▶</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Opening a Gas Fuel Cap</h3>
+                        <p class="video-description">
+                            Demonstration of Robo Jerry autonomously opening a gas vehicle's fuel cap.
+                        </p>
+                        <div class="video-tags">
+                            <span class="feature-tag">Fuel Cap</span>
+                            <span class="feature-tag">Autonomous</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="videos-cta" data-aos="fade-up">
+                <a href="videos.html" class="btn-primary">
+                    <span>View All Videos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Building the future of autonomous refueling.</p>
+                <div class="footer-brand">
+                    <span class="logo-icon">🤖</span>
+                </div>
+                <p class="footer-text">Building the future of autonomous refueling.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Performance optimizations -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Lazy load images and heavy content
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('loaded');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
 
-            document.querySelectorAll('[data-lazy]').forEach(el => observer.observe(el));
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Preload next page on hover
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                const href = this.getAttribute('href');
-                if (href && !document.querySelector(`link[href="${href}"]`)) {
-                    const preload = document.createElement('link');
-                    preload.rel = 'prefetch';
-                    preload.href = href;
-                    document.head.appendChild(preload);
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Progress bar animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = progress + '%';
+            });
+        }
+
+        // Video carousel
+        let currentVideoIndex = 0;
+        let videoTimer = null;
+        const videos = [
+            { src: 'assets/videos/ev-charging-demo.mp4', duration: 10000 },
+            { src: 'assets/videos/fuel-cap-demo.mp4', duration: 27000 }
+        ];
+
+        function updateVideoIndicator() {
+            document.querySelectorAll('.indicator-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentVideoIndex);
+            });
+        }
+
+        function switchVideo() {
+            const heroVideo = document.getElementById('heroVideo');
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            const video = videos[currentVideoIndex];
+            
+            heroVideo.src = video.src;
+            heroVideo.load();
+            updateVideoIndicator();
+            
+            // Clear existing timer
+            if (videoTimer) {
+                clearTimeout(videoTimer);
+            }
+            
+            // Set timer for next switch
+            videoTimer = setTimeout(switchVideo, video.duration);
+        }
+
+        // Manual video switching via indicator dots
+        document.querySelectorAll('.indicator-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentVideoIndex = index;
+                const video = videos[currentVideoIndex];
+                const heroVideo = document.getElementById('heroVideo');
+                
+                heroVideo.src = video.src;
+                heroVideo.load();
+                updateVideoIndicator();
+                
+                // Clear existing timer and set new one
+                if (videoTimer) {
+                    clearTimeout(videoTimer);
+                }
+                videoTimer = setTimeout(switchVideo, video.duration);
+            });
+        });
+
+        // Start the carousel
+        videoTimer = setTimeout(switchVideo, videos[0].duration);
+
+        // Video player functionality
+        function createVideoPlayer(videoSrc, videoTitle) {
+            const modal = document.createElement('div');
+            modal.className = 'video-modal';
+            modal.innerHTML = `
+                <div class="video-modal-content">
+                    <div class="video-modal-header">
+                        <h3>${videoTitle}</h3>
+                        <button class="video-modal-close">&times;</button>
+                    </div>
+                    <div class="video-modal-body">
+                        <video controls preload="metadata" playsinline>
+                            <source src="${videoSrc}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            `;
+            
+            const video = modal.querySelector('video');
+            
+            // Close modal functionality
+            const closeBtn = modal.querySelector('.video-modal-close');
+            closeBtn.addEventListener('click', () => {
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                modal.remove();
+            });
+            
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                    modal.remove();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function closeOnEscape(e) {
+                if (e.key === 'Escape') {
+                    if (video) {
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                    modal.remove();
+                    document.removeEventListener('keydown', closeOnEscape);
+                }
+            });
+            
+            document.body.appendChild(modal);
+            
+            // Focus the close button for accessibility
+            setTimeout(() => {
+                closeBtn.focus();
+            }, 100);
+        }
+
+        // Video link interactions
+        document.querySelectorAll('.video-container a').forEach(link => {
+            const handleVideoClick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const videoSrc = this.getAttribute('href');
+                const videoTitle = this.querySelector('img').getAttribute('alt');
+                
+                // Thumbnail animation
+                const thumbnail = this.querySelector('img');
+                if (thumbnail) {
+                    thumbnail.style.opacity = '0.7';
+                    thumbnail.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        thumbnail.style.opacity = '1';
+                        thumbnail.style.transform = 'scale(1)';
+                    }, 200);
+                }
+                
+                // Open video player
+                createVideoPlayer(videoSrc, videoTitle);
+            };
+            
+            // Add click event
+            link.addEventListener('click', handleVideoClick);
+        });
+
+        // Trigger animations when sections come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('hero')) {
+                        animateCounters();
+                    }
+                    if (entry.target.classList.contains('technology-section')) {
+                        animateProgressBars();
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navigation active state
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
                 }
             });
         });
     </script>
+
+    <!-- Add AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </body>
 </html>
